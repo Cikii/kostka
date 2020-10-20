@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
         <title>Kostka</title>
 
         <!-- Bootstrap CSS -->
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -17,19 +18,27 @@
         <![endif]-->
     </head>
     <body>
-        <h1 class="text-center">Kostka</h1>
-        <div class="container">
+        <audio id="zvuk">
+            <source src="efekt.mp3" type="audio/mpeg"> 
+          </audio>
+
+        <h1 class="text-center jumbotron" id="nadpis">Kostka</h1>
+        <div class="container" id="kcss">
             <figure>
                 <img id="cube" src="img/kostka6.png" alt="Kostka">
             </figure>
             <div id="result">Výsledek</div>
-            <button id="game">Hraj</button>
+            <button id="game" class="btn-primary btn-large">Hraj</button>
         </div>
+        <footer class="jumbotron" id="bar">
+          <p>Viktor Chudoba IT2 &copy; SSPU Opava 2020</p>
+        </footer>
 
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/game.js"></script>
+        
     </body>
 </html>

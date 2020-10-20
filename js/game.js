@@ -1,4 +1,8 @@
-var hody = [];
+let hody = [];
+let h;
+let timer = false;
+const tlacitko= document.getElementById("game");
+
 
 document.getElementById('game').addEventListener('click',
     function(){
@@ -6,6 +10,18 @@ document.getElementById('game').addEventListener('click',
         console.log(hody);
     }
 );
+function zvuk(){
+    let zvuk=document.getElementById('zvuk');
+    zvuk.currentTime = 0;
+    zvuk.play();
+}
+
+function animace(){
+    h = Math.ceil(Math.random() * 6);
+    document.getElementById('cube').src='img/kostka' + h + '.png';
+    tlacitko.innerText = 'Stop';
+    zvuk();
+}
 
 function suma(cisla) {
     var sum = 0;
@@ -36,9 +52,20 @@ function average(sum, count) {
 }
 
 function hod() {
-    var h = Math.ceil(Math.random() * 6);
-    hody.push(h);
-    document.getElementById('cube').src='img/kostka' + h + '.png';
+    if (!timer){
+timer= setInterval(animace, 50);
+tlacitko.innerText = 'Hraj';
+    }
+    else{
+        clearInterval(timer);
+        timer=false;
+        hody.push(h);
+        tlacitko.innerText = 'Hraj';
+        vypisStatistiky();
+    }
+}
+
+ function vypisStatistiky(){
     document.getElementById('result').innerHTML = '<p>Hod: ' + h + '</p>';
     document.getElementById('result').innerHTML += 
         '<p>Počet hodů: ' + hody.length + '</p>';
@@ -50,5 +77,5 @@ function hod() {
         '<p>Nejvyšší hod: ' + maximum(hody) + '</p>';
     document.getElementById('result').innerHTML += 
         '<p>Nejvyšší hod: ' + minimum(hody) + '</p>';
-    return h;
+    
 }
